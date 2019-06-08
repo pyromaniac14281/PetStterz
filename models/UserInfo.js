@@ -1,8 +1,8 @@
 const orm = require('../config/orm')
 
 var userInfo = {
-    userProfile: function (user, cb) {
-        orm.userProfile('user', user, function (res) {
+    createUser: function (user, cb) {
+        orm.createUser('user', user, function (res) {
             cb(res)
         })
     },

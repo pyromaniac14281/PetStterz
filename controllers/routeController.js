@@ -19,4 +19,18 @@ router.get('/profile', (req, res) => {
 })
 
 
+router.get('/register', (req, res) => {
+    res.render('signup')
+})
+
+
+//post signup data to the database.
+router.post('/register', (req, res) => {
+
+    console.log(req.body)
+    
+    res.send(req.body)
+
+})
+
 module.exports = router;
