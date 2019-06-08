@@ -1,5 +1,33 @@
-var localStrategy = require('passport-local').Strategy;
+module.exports = function (sequelize, DataTypes) {
 
-var mysql = require('mysql');
-var bycrpt = require('bcryptjs');
-var db = require('../config/connection');
+    var User = sequelize.define("User", {
+        firstName: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        lastName: {
+            type: DataTypes.STRING
+            // allowNull defaults to true
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        mobile: {
+            type: DataTypes.INTEGER,
+            // allowNull: false
+        },
+        address: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        zipcode: {
+            type: DataTypes.INTEGER,
+            // allowNull: false
+        }
+    });
+
+
+
+    return User;
+};

@@ -20,9 +20,6 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
-
-
-
 //get routes
 // Import routes and give the server access to them.
 let router = require("./controllers/routeController");
@@ -31,6 +28,13 @@ let users = require('./controllers/loginroutes')
 
 app.use(router)
 
-app.listen(PORT, function () {
-    console.log("App listening on PORT " + PORT);
+//db connection
+var db = require("./models");
+
+db.sequelize.sync({
+    force: true
+}).then(function () {
+    app.listen(PORT, function () {
+        console.log("App listening on PORT " + PORT);
+    });
 });

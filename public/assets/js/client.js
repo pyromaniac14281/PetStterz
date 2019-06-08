@@ -9,14 +9,20 @@ function signUpSubmit(e) {
     let userName = document.getElementById('user_name').value.trim()
     let password = document.getElementById('password').value.trim()
     let confirmPassword = document.getElementById('confirm-password').value.trim()
+    let address = document.getElementById('address').value.trim()
+    let zipcode = document.getElementById('zipcode').value.trim()
 
     var person = {
         firstName: firstName,
         lastName: lastName,
-        mobileNum: mobileNum,
+
         userName: userName,
         password: password,
-        confirmPassword: confirmPassword
+        confirmPassword: confirmPassword,
+        mobileNum: mobileNum,
+        address: address,
+        zipcode: zipcode
+
     }
 
     if (comparePasswords()) {
@@ -34,7 +40,7 @@ function comparePasswords(password, confirmPassword) {
 
 function postSignUpData(person) {
 
-
+    console.log(person);
     fetch('/register', {
             method: 'POST',
             headers: {
@@ -44,10 +50,12 @@ function postSignUpData(person) {
             body: JSON.stringify({
                 firstName: person.firstName,
                 lastName: person.lastName,
-                mobileNum: person.mobileNum,
                 userName: person.userName,
                 password: person.password,
-                confirmPassword: person.confirmPassword
+                confirmPassword: person.confirmPassword,
+                mobileNum: person.mobileNum,
+                address: address,
+                zipcode: zipcode
             })
         }).then((res) => res.json())
         .then((data) => {

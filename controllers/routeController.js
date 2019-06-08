@@ -1,22 +1,16 @@
 const express = require('express')
 const router = express.Router()
-const db = require('../config/dbConnection')
-const user = require('../models/UserInfo')
+const db = require('../models')
 
-router.get('/profile', (req, res) => {
+// router.get('/profile', (req, res) => {
 
-    user.userProfile(function (userData) {
-        // console.log(userData);
-
-        res.render("userprofile", {
-            userprofile: userData
-        });
-
-        res.end()
-    })
-    // get user profile
-
-})
+//     user.userProfile(function (userData) {
+//         res.render("userprofile", {
+//             userprofile: userData
+//         });
+//         res.end()
+//     })
+// })
 
 
 router.get('/register', (req, res) => {
@@ -26,11 +20,14 @@ router.get('/register', (req, res) => {
 
 //post signup data to the database.
 router.post('/register', (req, res) => {
+    console.log('this is body', req.body);
 
-    console.log(req.body)
-    
-    res.send(req.body)
-
+    db.User.create(req.body)
+        .then(user => {
+            console.log('\n', '\n', user);
+            res.send(user)
+        })
+        .catch((err) => console.log(err));
 })
 
 module.exports = router;
