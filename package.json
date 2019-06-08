@@ -2,7 +2,7 @@
   "name": "PetStterz",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -19,6 +19,12 @@
   },
   "homepage": "https://github.com/pyromaniac14281/PetStterz#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mysql": "^2.17.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
   }
 }
