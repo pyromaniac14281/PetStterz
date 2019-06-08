@@ -3,8 +3,8 @@ var db = require("./connection");
 
 var orm = {
 
-    selectAll: function (tableName, callback) {
-        queryString = "SELECT * FROM" + tableName + ";"
+    userProfile: function (tableName, callback) {
+        queryString = "SELECT * FROM " + tableName + ";"
 
         db.query(queryString, (err, results) => {
             if (err) throw err;
@@ -14,7 +14,7 @@ var orm = {
     },
 
     selectId: function (tableName, id, callback) {
-        queryString = "SELECT firstName FROM" + tableName + "WHERE id =" + id + ";"
+        queryString = "SELECT firstName FROM " + tableName + "WHERE id =" + id + ";"
 
         db.query(queryString, (err, results) => {
             if (err) throw err;

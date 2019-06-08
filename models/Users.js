@@ -1,17 +1,5 @@
-const Sequelize = require('sequelize')
-const db = require('../config/dbConnection')
+var localStrategy = require('passport-local').Strategy;
 
-const UsersignUp = db.define('user', {
-    userName: {
-        type: Sequelize.STRING
-    },
-    password: {
-        type: Sequelize.STRING
-    },
-    confirmPassword: {
-        type: Sequelize.STRING
-    },
-
-})
-
-module.exports = UsersignUp;
+var mysql = require('mysql');
+var bycrpt = require('bcryptjs');
+var db = require('../config/connection');

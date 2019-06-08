@@ -1,8 +1,8 @@
 const orm = require('../config/orm')
 
 var userInfo = {
-    selectAll: function (user, cb) {
-        orm.selectAll('user', user, function (res) {
+    userProfile: function (user, cb) {
+        orm.userProfile('user', user, function (res) {
             cb(res)
         })
     },
@@ -12,9 +12,6 @@ var userInfo = {
             cb(res)
         })
     },
-
-
-
 };
 
 module.exports = userInfo;
