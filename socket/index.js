@@ -8,6 +8,13 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
   console.log('a user connected');
+
+  socket.username = "Anonymous"
+
+  socket.on('change_username', (data) => {
+    socket.username = data.username
+  });
+
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });
