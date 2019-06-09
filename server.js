@@ -23,7 +23,7 @@ app.set("view engine", "handlebars");
 //get routes
 // Import routes and give the server access to them.
 let router = require("./controllers/routeController");
-let users = require('./controllers/loginroutes')
+
 //routes to handle user registration:
 
 app.use(router)

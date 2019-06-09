@@ -28,6 +28,7 @@ function signUpSubmit(e) {
 
     if (comparePasswords()) {
         postSignUpData(person)
+
     } else {
         console.log("wrong password");
     }
@@ -60,7 +61,23 @@ function postSignUpData(person) {
         .then((data) => {
             console.log("Success");
         }).catch((err) => console.log(err))
+
+
+
 }
+
+// function clearfields() {
+
+//     firstName.value("")
+//     lastName.value("")
+//     mobile.value("")
+//     userName.val("")
+//     password.val("")
+//     confirmPa.va("")
+//     address.val("")
+//     zipcode.val("")
+
+// }
 
 document.getElementById('btn-signup').addEventListener('click', signUpSubmit)
 // document.getElementById('btn-login').addEventListener('click', login)
