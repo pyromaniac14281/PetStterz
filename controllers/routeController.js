@@ -24,10 +24,15 @@ router.post('/register', (req, res) => {
 
     db.User.create(req.body)
         .then(user => {
-            console.log('\n', '\n', user);
+            // console.log('\n', '\n', user);
+            console.log('from the server', user);
+
             res.send(user)
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+            console.log(err)
+            res.send(err)
+        });
 })
 
 module.exports = router;
