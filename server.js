@@ -21,7 +21,7 @@ app.engine("handlebars", exphbs({
 app.set("view engine", "handlebars");
 
 //get routes
-// Import routes and give the server access to them.
+// Import routes and give the server access to them
 let router = require("./controllers/routeController");
 
 //routes to handle user registration:

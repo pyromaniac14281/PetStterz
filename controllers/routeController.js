@@ -28,6 +28,7 @@ router.post('/register', (req, res) => {
             console.log('from the server', user);
 
             res.send(user)
+            // res.redirect('profile')
         })
         .catch((err) => {
             console.log(err)

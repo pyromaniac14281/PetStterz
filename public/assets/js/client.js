@@ -25,7 +25,7 @@ function signUpSubmit(e) {
         zipcode: zipcode
 
     }
-
+    console.log('before fetch post from client', person);
     if (comparePasswords()) {
         postSignUpData(person)
 
@@ -41,6 +41,8 @@ function comparePasswords(password, confirmPassword) {
 }
 
 function postSignUpData(person) {
+    console.log('inside fetch post from client', person);
+
     fetch('/register', {
             method: 'POST',
             headers: {
@@ -62,7 +64,7 @@ function postSignUpData(person) {
             console.log("Success");
         }).catch((err) => console.log(err))
 
-
+    // function clearfields()
 
 }
 
