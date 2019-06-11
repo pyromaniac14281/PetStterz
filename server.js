@@ -22,17 +22,19 @@ app.set("view engine", "handlebars");
 
 //get routes
 // Import routes and give the server access to them
-let router = require("./controllers/routeController");
+let router = require("./controllers/userController");
+let router2 = require("./controllers/commentController");
+// let router = require("./controllers/commentController");
 
-//routes to handle user registration:
 
-app.use(router)
+app.use(router, router2);
+// app.use();
 
 //db connection
 var db = require("./models");
 
 db.sequelize.sync({
-    force: true
+    force: false
 }).then(function () {
     app.listen(PORT, function () {
         console.log("App listening on PORT " + PORT);
