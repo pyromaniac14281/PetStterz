@@ -10,11 +10,9 @@ router.get('/register', (req, res) => {
 router.post('/register', (req, res) => {
     console.log('this is body', req.body);
 
-
-
     db.User.create(req.body)
         .then(user => {
-            // console.log('\n', '\n', user);
+       
             console.log('from the server', user);
 
             res.send(user)
@@ -34,7 +32,9 @@ router.get('/profile/:id', (req, res) => {
     }).then((data) => {
         // console.log("this is data", data);
         console.log("this is data", data.zipcode);
-        res.send(data)
+        res.send({
+            zipcode: data.zipcode
+        })
     })
 
 

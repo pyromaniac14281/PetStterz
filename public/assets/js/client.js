@@ -1,8 +1,6 @@
 //make the post request to '/register'
 function signUpSubmit(e) {
     e.preventDefault()
-
-
     let firstName = document.getElementById('first_name').value.trim()
     let lastName = document.getElementById('last_name').value.trim()
     let mobile = document.getElementById('mob_no').value.trim()
@@ -11,7 +9,6 @@ function signUpSubmit(e) {
     let confirmPassword = document.getElementById('confirm-password').value.trim()
     let address = document.getElementById('address').value.trim()
     let zipcode = document.getElementById('zipcode').value.trim()
-
 
     var person = {
         firstName: firstName,
@@ -34,7 +31,7 @@ function signUpSubmit(e) {
     }
 
 }
-
+//compare password logic not working
 function comparePasswords(password, confirmPassword) {
     return (password === confirmPassword)
 
@@ -68,6 +65,7 @@ function postSignUpData(person) {
 
 }
 
+//fix clear functionality
 // function clearfields() {
 
 //     firstName.value("")
