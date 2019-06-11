@@ -32,7 +32,7 @@ app.use(router)
 var db = require("./models");
 
 db.sequelize.sync({
-    force: false
+    force: true
 }).then(function () {
     app.listen(PORT, function () {
         console.log("App listening on PORT " + PORT);

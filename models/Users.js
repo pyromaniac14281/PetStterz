@@ -27,5 +27,11 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
+    User.associate = function (models) {
+        User.hasMany(models.Review, {
+            onDelete: "cascade"
+        })
+    }
+
     return User;
 };
