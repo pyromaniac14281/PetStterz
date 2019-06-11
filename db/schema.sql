@@ -1,5 +1,3 @@
-### Schema
-
 DROP DATABASE IF EXISTS petstterz_db;
 
 CREATE DATABASE petstterz_db;
