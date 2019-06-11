@@ -2,6 +2,12 @@ const express = require('express')
 const router = express.Router()
 const db = require('../models')
 
+
+//displays the main page when the user hits this route.
+router.get('/', (req, res) => {
+    res.render('home')
+})
+
 router.get('/register', (req, res) => {
     res.render('signup')
 })
@@ -12,7 +18,7 @@ router.post('/register', (req, res) => {
 
     db.User.create(req.body)
         .then(user => {
-       
+
             console.log('from the server', user);
 
             res.send(user)
@@ -36,7 +42,6 @@ router.get('/profile/:id', (req, res) => {
             zipcode: data.zipcode
         })
     })
-
 
 })
 
