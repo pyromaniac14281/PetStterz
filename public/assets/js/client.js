@@ -1,3 +1,10 @@
+//connect to firebase
+const firebase = require('firebase');
+const firebaseconn = require('../../../config/firebaseConfig')
+
+const fb = firebase.initializeApp(firebaseconn);
+FirebaseDB = fb.database()
+
 //make the post request to '/register'
 function signUpSubmit(e) {
     e.preventDefault()
@@ -60,12 +67,21 @@ function postSignUpData(person) {
         .then((res) => res.json())
         .then((data) => {
             console.log("Success");
+
+            //pushing data to firebase
+            pushDatatoFirebase(data)
+
         }).catch((err) => console.log(err))
 
     // function clearfields()
 
 }
 
+function pushDatatoFirebase(data) {
+    console.log(data);
+
+
+}
 //fix clear functionality
 // function clearfields() {
 

@@ -29,6 +29,9 @@ router.post('/register', (req, res) => {
         });
 })
 
+
+
+
 router.get('/profile/:id', (req, res) => {
     db.User.findOne({
         where: {
