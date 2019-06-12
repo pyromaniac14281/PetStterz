@@ -4,6 +4,8 @@ let app = express()
 let path = require('path')
 let PORT = process.env.PORT || 8080
 var bodyParser = require('body-parser')
+// adding multer package which helps with image processing
+var multer = require('multer')
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
