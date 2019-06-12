@@ -1,31 +1,5 @@
-<!DOCTYPE html>
-<html>
-<title>PetStterz Profile</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
-<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-<style>
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
-</style>
-<body class="w3-light-grey">
-    <div class="container">
-        <!-- Static navbar -->
-        <nav class="navbar navbar-default">
-          <div class="container-fluid">
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="./profile.handlebars">Home</a></li>
-              </ul>
-            </div><!--/.nav-collapse -->
-          </div><!--/.container-fluid -->
-
     <a href src="../socket/index.html">Socket Chat App</a>
 
-    <h2>{{zipcode}}</h2>
     <div class="w3-content w3-margin-top" style="max-width:1400px;">
 
       <div class="w3-row-padding">
@@ -36,7 +10,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
             <div class="w3-display-container">
               <img src="../public/assets/images/butterfly.jpg" style="width:100%" alt="profile">
               <div class="w3-display-bottomleft w3-container w3-text-black">
-                <h2>Jane Doe</h2>
+                <h2>{{fullname}}</h2>
               </div>
             </div>
             <div class="w3-container">
@@ -44,7 +18,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                 <i class="email" i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>ex@mail.com
               </p>
               <p>
-                <i class="number" i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>1224435534
+              <i class="number" i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>{{phone}}
               </p>
               <hr>
 
@@ -107,7 +81,3 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
       </div>
 
     </div>
-
-  </body>
-
-  </html>

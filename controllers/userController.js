@@ -36,9 +36,12 @@ router.get('/profile/:id', (req, res) => {
             id: req.params.id
         }
     }).then((data) => {
-        // console.log("this is data", data);
-        console.log("this is data", data.zipcode);
         res.render('profile', {
+            fullname: data.firstName + " " + data.lastName,
+            firstname: data.firstName,
+            lastname: data.lastName,
+            phone: data.mobile,
+            address: data.address,
             zipcode: data.zipcode
         })
     })
