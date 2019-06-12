@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const db = require('../models')
 
-
 //displays the main page when the user hits this route.
 router.get('/', (req, res) => {
     res.render('home')

@@ -2,7 +2,6 @@ const express = require('express');
 const router = express();
 const db = require('../models');
 
-
 // Get comments for a specific user
 router.get('/user', (req, res) => {
     db.Review.findAll({
@@ -33,8 +32,4 @@ router.get('/comments', (req, res) => {
     res.json("hey2")
 })
 
-
 module.exports = router
-// body: req.body.body,
-// rating: req.body.rating,
-// UserId: req.body.UserId

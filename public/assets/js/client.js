@@ -46,7 +46,7 @@ function postSignUpData(person) {
                 'Content-Type': 'application/json'
 
             },
-            body: JSON.stringify({
+            body: {
                 firstName: person.firstName,
                 lastName: person.lastName,
                 userName: person.userName,
@@ -55,8 +55,9 @@ function postSignUpData(person) {
                 mobile: person.mobile,
                 address: person.address,
                 zipcode: person.zipcode
-            })
-        }).then((res) => res.json())
+            }
+        })
+        .then((res) => res.json())
         .then((data) => {
             console.log("Success");
         }).catch((err) => console.log(err))
