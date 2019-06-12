@@ -59,8 +59,6 @@ function postSignUpData(person) {
       .then((data) => {
           console.log("Success --> ", data);
           const userId = data.message;
-          const queryUrl = '/profile/' + userId;
-          console.log(queryUrl);
           window.location.href = '/profile/' + userId;
         }).catch((err) => console.log(err))
 
