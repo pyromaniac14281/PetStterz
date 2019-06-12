@@ -21,12 +21,12 @@ router.post('/register', (req, res) => {
 
             console.log('from the server', user);
 
-            res.send(user)
+            res.json({ status: 200, message: user.dataValues.id});
             // res.redirect('profile')
         })
         .catch((err) => {
             console.log(err)
-            res.send(err)
+            res.json({ status: 500, message: err.message });
         });
 })
 
@@ -38,7 +38,7 @@ router.get('/profile/:id', (req, res) => {
     }).then((data) => {
         // console.log("this is data", data);
         console.log("this is data", data.zipcode);
-        res.send({
+        res.render('profile', {
             zipcode: data.zipcode
         })
     })

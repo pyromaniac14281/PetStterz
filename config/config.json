@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "F@lcon101701",
     "database": "petstterz_db",
     "host": "127.0.0.1",
     "dialect": "mysql"

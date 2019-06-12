@@ -1,16 +1,16 @@
 //make the post request to '/register'
 function signUpSubmit(e) {
     e.preventDefault()
-    let firstName = document.getElementById('first_name').value.trim()
-    let lastName = document.getElementById('last_name').value.trim()
-    let mobile = document.getElementById('mob_no').value.trim()
-    let userName = document.getElementById('user_name').value.trim()
-    let password = document.getElementById('password').value.trim()
-    let confirmPassword = document.getElementById('confirm-password').value.trim()
-    let address = document.getElementById('address').value.trim()
-    let zipcode = document.getElementById('zipcode').value.trim()
+    const firstName = document.getElementById('first_name').value.trim()
+    const lastName = document.getElementById('last_name').value.trim()
+    const mobile = document.getElementById('mob_no').value.trim()
+    const userName = document.getElementById('user_name').value.trim()
+    const password = document.getElementById('password').value.trim()
+    const confirmPassword = document.getElementById('confirm-password').value.trim()
+    const address = document.getElementById('address').value.trim()
+    const zipcode = document.getElementById('zipcode').value.trim()
 
-    var person = {
+    const person = {
         firstName: firstName,
         lastName: lastName,
 
@@ -44,7 +44,6 @@ function postSignUpData(person) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
-
             },
             body: JSON.stringify({
                 firstName: person.firstName,
@@ -56,9 +55,13 @@ function postSignUpData(person) {
                 address: person.address,
                 zipcode: person.zipcode
             })
-        }).then((res) => res.json())
-        .then((data) => {
-            console.log("Success");
+    }).then(res => res.json())
+      .then((data) => {
+          console.log("Success --> ", data);
+          const userId = data.message;
+          const queryUrl = '/profile/' + userId;
+          console.log(queryUrl);
+          window.location.href = '/profile/' + userId;
         }).catch((err) => console.log(err))
 
     // function clearfields()
