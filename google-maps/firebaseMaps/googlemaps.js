@@ -1,8 +1,6 @@
 function initMap() {
     var contentString;
     let userLocation;
-    var pinAddess;
-    var pinTitle;
 
     var map = new google.maps.Map(document.getElementById("map"), {
         zoom: 11,
