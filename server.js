@@ -24,12 +24,12 @@ app.set("view engine", "handlebars");
 
 //get routes
 // Import routes and give the server access to them
-let router = require("./controllers/userController");
-let router2 = require("./controllers/commentController");
+const userRouter = require("./controllers/userController");
+const commentRouter = require("./controllers/commentController");
 // let router = require("./controllers/commentController");
 
 
-app.use(router, router2);
+app.use(userRouter, commentRouter);
 // app.use();
 
 //db connection

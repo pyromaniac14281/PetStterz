@@ -1,22 +1,22 @@
 //make the post request to '/register'
 function signUpSubmit(e) {
     e.preventDefault()
-    let firstName = document.getElementById('first_name').value.trim()
-    let lastName = document.getElementById('last_name').value.trim()
-    let mobile = document.getElementById('mob_no').value.trim()
-    let userName = document.getElementById('user_name').value.trim()
-    let password = document.getElementById('password').value.trim()
-    let confirmPassword = document.getElementById('confirm-password').value.trim()
-    let address = document.getElementById('address').value.trim()
-    let zipcode = document.getElementById('zipcode').value.trim()
+    const firstName = document.getElementById('first_name').value.trim()
+    const lastName = document.getElementById('last_name').value.trim()
+    const mobile = document.getElementById('mob_no').value.trim()
+    const userName = document.getElementById('user_name').value.trim()
+    const password = document.getElementById('password').value.trim()
+    const confirmPassword = document.getElementById('confirm-password').value.trim()
+    const address = document.getElementById('address').value.trim()
+    const zipcode = document.getElementById('zipcode').value.trim()
 
-    //add loogic to capture image from the front end
-    
+    //capture image info from the front end
+    // const imageUpload = document.getElementById('')
 
-    var person = {
+
+    const person = {
         firstName: firstName,
         lastName: lastName,
-
         userName: userName,
         password: password,
         confirmPassword: confirmPassword,
@@ -47,7 +47,6 @@ function postSignUpData(person) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
-
             },
             body: JSON.stringify({
                 firstName: person.firstName,
@@ -59,9 +58,12 @@ function postSignUpData(person) {
                 address: person.address,
                 zipcode: person.zipcode
             })
-        }).then((res) => res.json())
+        }).then(res => res.json())
         .then((data) => {
-            console.log("Success");
+            console.log("Success --> ", data);
+            const userId = data.message;
+            localStorage.setItem('userId', userId);
+            window.location.href = '/profile/' + userId;
         }).catch((err) => console.log(err))
 
     // function clearfields()
@@ -81,6 +83,9 @@ function postSignUpData(person) {
 //     zipcode.val("")
 
 // }
-
+function Uploadimage() {
+    const imageUpload = document.getElementById('')
+}
+// document.getElementById('imageUploadSubmit').addEventListener('change', Uploadimage)
 document.getElementById('btn-signup').addEventListener('click', signUpSubmit)
 // document.getElementById('btn-login').addEventListener('click', login)
