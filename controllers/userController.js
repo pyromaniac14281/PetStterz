@@ -13,12 +13,12 @@ router.get('/register', (req, res) => {
 
 //post signup data to the database.
 router.post('/register', (req, res) => {
-    console.log('this is body', req.body);
+    // console.log('this is body', req.body);
 
     db.User.create(req.body)
         .then(user => {
 
-            console.log('from the server', user);
+            // console.log('from the server', user);
 
             res.send(user)
             // res.redirect('profile')

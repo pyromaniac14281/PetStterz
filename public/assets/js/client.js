@@ -4,6 +4,8 @@
 
 // const fb = firebase.initializeApp(firebaseconn);
 // FirebaseDB = fb.database()
+
+
 var config = {
     apiKey: "AIzaSyCQUPXI0N7-b4bOpNlb6n8ML1p6YW5VJ48",
     authDomain: "ronwab-8dbcd.firebaseapp.com",
@@ -13,7 +15,7 @@ var config = {
     messagingSenderId: "148535054528"
 };
 firebase.initializeApp(config);
-database = firebase.database()
+db = firebase.database()
 
 
 
@@ -41,7 +43,7 @@ function signUpSubmit(e) {
         zipcode: zipcode
 
     }
-    console.log('before fetch post from client', person);
+
     if (comparePasswords()) {
         postSignUpData(person)
 
@@ -57,7 +59,7 @@ function comparePasswords(password, confirmPassword) {
 }
 
 function postSignUpData(person) {
-    console.log('inside fetch post from client', person);
+    // console.log('inside fetch post from client', person);
 
     fetch('/register', {
             method: 'POST',
@@ -65,7 +67,7 @@ function postSignUpData(person) {
                 'Content-Type': 'application/json'
 
             },
-            body: {
+            body: JSON.stringify({
                 firstName: person.firstName,
                 lastName: person.lastName,
                 userName: person.userName,
@@ -74,7 +76,7 @@ function postSignUpData(person) {
                 mobile: person.mobile,
                 address: person.address,
                 zipcode: person.zipcode
-            }
+            })
         })
         .then((res) => res.json())
         .then((data) => {
@@ -90,7 +92,20 @@ function postSignUpData(person) {
 }
 
 function pushDatatoFirebase(data) {
-    console.log(data);
+    console.log("I am in hte post push");
+
+    console.log('This is in Push to fb', data.zipcode);
+
+    var newAddress = {
+        zipcode: data.zipcode,
+        address: data.address
+    }
+
+
+    db.ref().push(newAddress)
+
+
+
 
 
 }
