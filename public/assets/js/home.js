@@ -24,6 +24,17 @@ $(document).ready(function() {
             window.location.hash = hash;
           }
         );
-      } 
+      }
     });
+
+  // Uses userId in localStorage to load the appropriate profile
+  $('.profile-button').on('click', function() {
+    const userId = localStorage.getItem('userId');
+    window.location.href = '/profile/' + userId;
   });
+
+  // A pseudo logout just in case you want to implement something like it
+  $('.logout-button').on('click', function() {
+    localStorage.clear();
+   });
+ });
