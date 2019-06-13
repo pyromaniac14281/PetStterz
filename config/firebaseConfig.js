@@ -1,5 +1,5 @@
 //contains firebase connection info
-moduule.exports = {
+module.exports = {
     apiKey: process.env.apiKey,
     authDomain: process.env.authDomain,
     databaseURL: process.env.databaseURL,
