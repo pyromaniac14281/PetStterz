@@ -10,6 +10,9 @@ function signUpSubmit(e) {
     let address = document.getElementById('address').value.trim()
     let zipcode = document.getElementById('zipcode').value.trim()
 
+    //add loogic to capture image from the front end
+    
+
     var person = {
         firstName: firstName,
         lastName: lastName,
