@@ -1,9 +1,10 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
+    "username": "ronwab",
+    "password": "Falawewe01",
     "database": "petstterz_db",
-    "host": "127.0.0.1",
+    "host": "ronwabmysql.cvsi7v5i5dl4.us-east-1.rds.amazonaws.com",
+    "port": 3306,
     "dialect": "mysql"
   },
   "test": {
