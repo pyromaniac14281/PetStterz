@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>PetStterz</title>
@@ -20,8 +19,8 @@
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./assets/css/homestyle.css" />
-    <script src="./assets/js/home.js"></script>
+    <link rel="stylesheet" href="../../public/assets/css/homestyle.css" />
+    <script src="../../public/assets/js/home.js"></script>
 
   </head>
   <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -38,14 +37,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <IMG SRC="./assets/images/logo.jpg" ALT="Logo" WIDTH=60 HEIGHT=40>
+          <a class="navbar-brand" href="../public/assets/images/logo.png">Logo</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="./home.html">HOME</a></li>
-            <li><a href="../views/partials/login.handlebars">LOGIN</a></li>
-            <li><a href="../views/signup.handlebars"></a>SIGNUP</li>
-            <li><a href="../google-maps/googlemaps.html"></a>MAPS</li>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#login">LOGIN</a></li>
+            <li><a href="#signup">SIGNUP</a></li>
+            <li><a href="#map">MAP</a></li>
+            <li><a></a></li>
+
             <li>
               <a href="#"><span class="glyphicon glyphicon-search"></span></a>
             </li>
@@ -64,7 +65,7 @@
       <div class="carousel-inner" role="listbox">
         <div class="item active">
           <img
-            src="./assets/images/dog.jpg"
+            src="../public/assets/images/dog.jpg"
             alt="Doggo"
             width="1200"
             height="700"
@@ -78,7 +79,7 @@
         </div>
 
         <div class="item">
-          <img src="./assets/images/glasses.jpg" alt="Doggo" width="1200" height="700" />
+          <img src="../public/assets/images/glasses.jpg" alt="Doggo" width="1200" height="700" />
           <div class="carousel-caption">
             <h3>Doggo</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -87,7 +88,7 @@
         </div>
 
         <div class="item">
-          <img src="./assets/images/golden.jpg" alt="Doggo" width="1200" height="700" />
+          <img src="../public/assets/images/golden.jpg" alt="Doggo" width="1200" height="700" />
           <div class="carousel-caption">
             <h3>Doggo</h3>
             <p>
@@ -204,7 +205,7 @@
       </div>
     </div>
 
-    <img src="./assets/images/german.jpg" class="img-responsive" style="width:100%" />
+    <img src="../public/assets/images/german.jpg" class="img-responsive" style="width:100%" />
 
     <footer class="text-center">
       <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
