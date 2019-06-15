@@ -61,6 +61,7 @@ function postSignUpData(person) {
           const userId = data.message;
           localStorage.setItem('userId', userId);
           window.location.href = '/profile/' + userId;
+          
         }).catch((err) => console.log(err))
 
     // function clearfields()
