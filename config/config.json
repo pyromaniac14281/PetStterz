@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "ronwab",
+    "password": "Falawewe01",
+    "database": "petstterz_db",
+    "host": "ronwabmysql.cvsi7v5i5dl4.us-east-1.rds.amazonaws.com",
+    "port": 3306,
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
