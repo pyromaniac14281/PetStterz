@@ -12,7 +12,17 @@ function initMap() {
         }
     });
 
-    var ref = new Firebase("https://gtcbc-coding.firebaseio.com/");
+    var config = {
+        apiKey: "AIzaSyCQUPXI0N7-b4bOpNlb6n8ML1p6YW5VJ48",
+        authDomain: "ronwab-8dbcd.firebaseapp.com",
+        databaseURL: "https://ronwab-8dbcd.firebaseio.com",
+        projectId: "ronwab-8dbcd",
+        storageBucket: "ronwab-8dbcd.appspot.com",
+        messagingSenderId: "148535054528"
+    };
+    
+    firebase.initializeApp(config);
+    
     var myLatLng = firebase.database().ref("/");
 
     myLatLng.on("value", function (snapShot) {
