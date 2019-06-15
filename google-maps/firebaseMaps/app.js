@@ -14,7 +14,7 @@
 
       const preObject = document.getElementById("person");
 
-      const dbRefObject = firebase.database().ref().child("person");
+      const dbRefObject = firebase.database().ref();
 
       dbRefObject.on('value', snap => console.log(snap.val()));
 
