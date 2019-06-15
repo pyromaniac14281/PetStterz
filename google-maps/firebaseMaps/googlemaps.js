@@ -25,13 +25,13 @@ function initMap() {
             console.log(pinName);
             
             contentString =  `<h5>User: ${pinName}<h/5>`;
-            addToMarker(pinName, contentString);
+            
         }
         
-        function get_coords(address)
+        function get_coords(userLocation)
         {
             var gc      = new google.maps.Geocoder(),
-                opts    = { 'address' : address };
+                opts    = { 'address' : userLocation };
         
             gc.geocode(opts, function (results, status)
             {
@@ -40,14 +40,12 @@ function initMap() {
                     var loc     = results[0].geometry.location,
                         latCoods     = results[0].geometry.location.lat();
                         lngCoods     = results[0].geometry.location.lng();
-                        console.log(latCoods);
-                        console.log(lngCoods);
                     
                         var coods = {lat: Number(latCoods),
                                      lng: Number(lngCoods)}
                                  console.log(coods)
 
-                        
+                                 addToMarker(coods, pinName, contentString);
                     // Success.  Do stuff here.
                 }
                 else
@@ -59,17 +57,14 @@ function initMap() {
         get_coords(userLocation);
         
 
-        function addToMarker(userLocation, pinName, contentString) {
+        function addToMarker(coods, pinName, contentString) {
 
             var infowindow = new google.maps.InfoWindow({
                 content: contentString
             });
 
             var marker = new google.maps.Marker({
-                position: {
-                    lat: Number(33.749),
-                    lng: Number(-84.388),
-                },
+                position: coods,
                 map: map,
                 title: pinName
             });
