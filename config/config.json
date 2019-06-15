@@ -5,14 +5,16 @@
     "database": "petstterz_db",
     "host": "ronwabmysql.cvsi7v5i5dl4.us-east-1.rds.amazonaws.com",
     "port": 3306,
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "logging": false
   },
   "test": {
     "username": "root",
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "logging": false
   },
   "production": {
     "username": "root",

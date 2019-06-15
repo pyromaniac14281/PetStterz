@@ -1,34 +1,53 @@
-const express = require('express')
-const router = express.Router()
-const db = require('../models')
+const express = require('express');
+const router = express.Router();
+const db = require('../models');
 
 
 //displays the main page when the user hits this route.
 router.get('/', (req, res) => {
-    res.render('home')
-})
+    res.render('home');
+});
 
 router.get('/register', (req, res) => {
-    res.render('signup')
-})
+    res.render('signup');
+});
 
 //post signup data to the database.
 router.post('/register', (req, res) => {
-    console.log('this is body', req.body);
+    const fName = req.body.firstName;
+    if (typeof fName === 'number') {
+        res.status(422)
+        return res.json({
+            message: 'error'
+        })
+    }
+
+    if (!fName) {
+        res.status(422)
+        return res.json({
+            message: 'Your name is needed'
+        })
+    }
 
     db.User.create(req.body)
         .then(user => {
 
-            console.log('from the server', user);
+            // console.log('from the server', user);
 
-            res.json({ status: 200, message: user.dataValues.id});
+            res.json({
+                status: 200,
+                message: user.dataValues.id
+            });
             // res.redirect('profile')
         })
         .catch((err) => {
-            console.log(err)
-            res.json({ status: 500, message: err.message });
+            console.log(err);
+            res.json({
+                status: 500,
+                message: err.message
+            });
         });
-})
+});
 
 router.get('/profile/:id', (req, res) => {
     db.User.findOne({
@@ -37,20 +56,20 @@ router.get('/profile/:id', (req, res) => {
         }
     }).then((data) => {
         res.render('profile', {
-            fullname: data.firstName + " " + data.lastName,
+            fullname: data.firstName + ' ' + data.lastName,
             firstname: data.firstName,
             lastname: data.lastName,
             phone: data.mobile,
             address: data.address,
             zipcode: data.zipcode
-        })
-    })
+        });
+    });
 
-})
+});
 
 router.get('/map', (req, res) => {
-    res.render('maps')
-})
+    res.render('maps');
+});
 
 
 module.exports = router;
