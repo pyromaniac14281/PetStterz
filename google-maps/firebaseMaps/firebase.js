@@ -120,5 +120,5 @@ function pushDatatoFirebase(data) {
 
 // }
 
-document.getElementById('btn-signup').addEventListener('click', signUpSubmit)
+// document.getElementById('btn-signup').addEventListener('click', signUpSubmit)
 // document.getElementById('btn-login').addEventListener('click', login)

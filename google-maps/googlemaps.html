@@ -17,28 +17,15 @@
         padding: 0;
       }
     </style>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script src="../google-maps/firebaseMaps/firebase.js"></script>
     <script src="../google-maps/firebaseMaps/googlemaps.js"></script>
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js">
-    var firebaseConfig = {
-      apiKey: "AIzaSyAznp5IiRCExfYhahEoU7S63ZaeoPjlnG0",
-      authDomain: "gtcbc-coding.firebaseapp.com",
-      databaseURL: "https://gtcbc-coding.firebaseio.com",
-      projectId: "gtcbc-coding",
-      storageBucket: "gtcbc-coding.appspot.com",
-      messagingSenderId: "46793546586",
-      appId: "1:46793546586:web:aefd434c3440f704"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    </script>
-
+    
   </head>
   <body>
     <div id="map"></div>
     
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAznp5IiRCExfYhahEoU7S63ZaeoPjlnG0&callback=initMap"
     async defer></script>
-    
   </body>
 </html>
