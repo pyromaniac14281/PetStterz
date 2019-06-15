@@ -1,5 +1,3 @@
-
-
 function initMap() {
     var contentString;
     let userLocation;
@@ -13,16 +11,17 @@ function initMap() {
     });
 
     var config = {
-        apiKey: "AIzaSyCQUPXI0N7-b4bOpNlb6n8ML1p6YW5VJ48",
-        authDomain: "ronwab-8dbcd.firebaseapp.com",
-        databaseURL: "https://ronwab-8dbcd.firebaseio.com",
-        projectId: "ronwab-8dbcd",
-        storageBucket: "ronwab-8dbcd.appspot.com",
-        messagingSenderId: "148535054528"
-    };
-    
-    firebase.initializeApp(config);
-    
+        apiKey: "AIzaSyAznp5IiRCExfYhahEoU7S63ZaeoPjlnG0",
+        authDomain: "gtcbc-coding.firebaseapp.com",
+        databaseURL: "https://gtcbc-coding.firebaseio.com",
+        projectId: "gtcbc-coding",
+        storageBucket: "gtcbc-coding.appspot.com",
+        messagingSenderId: "46793546586",
+        appId: "1:46793546586:web:aefd434c3440f704"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(config);
+
     var myLatLng = firebase.database().ref("/");
 
     myLatLng.on("value", function (snapShot) {
@@ -30,15 +29,15 @@ function initMap() {
         var data = snapShot.val(); 
 
         for (var key in data) {
-            userLocation = data[key].address;
-            pinName = data[key].userName;
-            // imageurl = data[key].urlfield;
-            // imageTitleField = data[key].imageTitleField;
-            // DescriptionField = data[key].DescriptionField
+            userLocation = data[key].locationCoodsvals;
+            pinName = data[key].userNameField;
+            imageurl = data[key].urlfield;
+            imageTitleField = data[key].imageTitleField;
+            DescriptionField = data[key].DescriptionField
             console.log(userLocation);
             console.log(pinName);
-            // console.log(imageurl);
-            // console.log(imageTitleField);
+            console.log(imageurl);
+            console.log(imageTitleField);
 
             contentString = `<h4>Piece: ${data[key].imageTitleField}</h4> <br> <img src="${imageurl}" width="180px"> <br> <h5>Artist: ${pinName}<h/5><br> <p>Description: ${DescriptionField}</p>`;
             addToMarker(userLocation, pinName, contentString);
