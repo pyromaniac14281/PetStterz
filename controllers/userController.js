@@ -40,10 +40,15 @@ router.get('/profile/:id', (req, res) => {
             fullname: data.firstName + " " + data.lastName,
             firstname: data.firstName,
             lastname: data.lastName,
+            email: data.email,
             phone: data.mobile,
             address: data.address,
-            zipcode: data.zipcode
+            zipcode: data.zipcode, 
+            userImageURL: data.userImageURL
+
         })
+        console.log(data);
+        
     })
 
 })
