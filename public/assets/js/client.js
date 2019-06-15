@@ -1,6 +1,49 @@
+// function addImage () {
+
+//Cloudinary 
+const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/kingdomb/upload';
+const CLOUDINARY_UPLOAD_PRESET = 'hfcvya1y';
+const fileUpload = document.getElementById('file-upload');
+
+fileUpload.addEventListener('change', function (event) {
+    event.preventDefault();
+
+  let file = event.target.files[0];
+  let formData = new FormData();
+  formData.append('file', file);
+  formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+  axios({
+    url: CLOUDINARY_URL,
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'//'Content-Type': 'application/json'
+  },
+
+  data: formData
+
+  }).then (function (res) {
+
+    // console.log(res);
+    var imgurl = res.data.secure_url
+
+    console.log(imgurl);
+
+    //signUpSubmit(imgurl);
+    return imgurl;
+    
+
+  }).catch (function (err) {
+
+    console.log(err);
+    
+  });
+});
+// };
+
 //make the post request to '/register'
-function signUpSubmit(e) {
-    e.preventDefault()
+function signUpSubmit(e, imgurl) {
+    e.preventDefault();
     const firstName = document.getElementById('first_name').value.trim()
     const lastName = document.getElementById('last_name').value.trim()
     const mobile = document.getElementById('mob_no').value.trim()
@@ -9,32 +52,21 @@ function signUpSubmit(e) {
     const confirmPassword = document.getElementById('confirm-password').value.trim()
     const address = document.getElementById('address').value.trim()
     const zipcode = document.getElementById('zipcode').value.trim()
+    // const userImageURL = imgurl//document.getElementById('file-upload').value.trim()
 
     const person = {
         firstName: firstName,
         lastName: lastName,
-
         userName: userName,
         password: password,
         confirmPassword: confirmPassword,
         mobile: mobile,
         address: address,
-        zipcode: zipcode
+        zipcode: zipcode,
+        userImageURL: imgurl
 
     }
-    console.log('before fetch post from client', person);
-    if (comparePasswords()) {
         postSignUpData(person)
-
-    } else {
-        console.log("wrong password");
-    }
-
-}
-//compare password logic not working
-function comparePasswords(password, confirmPassword) {
-    return (password === confirmPassword)
-
 }
 
 function postSignUpData(person) {
@@ -53,7 +85,8 @@ function postSignUpData(person) {
                 confirmPassword: person.confirmPassword,
                 mobile: person.mobile,
                 address: person.address,
-                zipcode: person.zipcode
+                zipcode: person.zipcode,
+                userImageURL: person.userImageURL
             })
     }).then(res => res.json())
       .then((data) => {
@@ -63,23 +96,7 @@ function postSignUpData(person) {
           window.location.href = '/profile/' + userId;
         }).catch((err) => console.log(err))
 
-    // function clearfields()
 
 }
 
-//fix clear functionality
-// function clearfields() {
-
-//     firstName.value("")
-//     lastName.value("")
-//     mobile.value("")
-//     userName.val("")
-//     password.val("")
-//     confirmPa.va("")
-//     address.val("")
-//     zipcode.val("")
-
-// }
-
-document.getElementById('btn-signup').addEventListener('click', signUpSubmit)
-// document.getElementById('btn-login').addEventListener('click', login)
+document.getElementById('btn-signup').addEventListener('click', signUpSubmit)//, addImage
