@@ -11,25 +11,21 @@ function initMap() {
     });
 
 
-    var myLatLng = firebase.database().ref("/");
+    const dbRefObject = firebase.database().ref().child("person");
 
-    myLatLng.on("value", function (snapShot) {
+      dbRefObject.on('value', function (snapShot) {
         
         var data = snapShot.val(); 
 
         for (var key in data) {
-            userLocation = data[key].locationCoodsvals;
-            pinName = data[key].userNameField;
-            imageurl = data[key].urlfield;
-            imageTitleField = data[key].imageTitleField;
-            DescriptionField = data[key].DescriptionField
+            userLocation = data[key].address;
+            pinName = data[key].userName;
+            
             console.log(userLocation);
             console.log(pinName);
-            console.log(imageurl);
-            console.log(imageTitleField);
-
-            contentString = `<h4>Piece: ${data[key].imageTitleField}</h4> <br> <img src="${imageurl}" width="180px"> <br> <h5>Artist: ${pinName}<h/5><br> <p>Description: ${DescriptionField}</p>`;
-            addToMarker(userLocation, pinName, contentString);
+            
+            contentString =  `<h5>Artist: ${pinName}<h/5>`;
+            addToMarker(pinName, contentString);
         }
 
         function addToMarker(userLocation, pinName, contentString) {
