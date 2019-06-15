@@ -14,6 +14,7 @@ var config = {
     storageBucket: "ronwab-8dbcd.appspot.com",
     messagingSenderId: "148535054528"
 };
+
 firebase.initializeApp(config);
 db = firebase.database()
 
@@ -34,7 +35,6 @@ function signUpSubmit(e) {
     var person = {
         firstName: firstName,
         lastName: lastName,
-
         userName: userName,
         password: password,
         confirmPassword: confirmPassword,
@@ -92,7 +92,7 @@ function postSignUpData(person) {
 }
 
 function pushDatatoFirebase(data) {
-    console.log("I am in hte post push");
+    console.log("I am in the post push");
 
     console.log('This is in Push to fb', data.zipcode);
 
@@ -103,10 +103,6 @@ function pushDatatoFirebase(data) {
 
 
     db.ref().push(newAddress)
-
-
-
-
 
 }
 //fix clear functionality

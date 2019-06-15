@@ -22,11 +22,13 @@ app.set("view engine", "handlebars");
 
 //get routes
 // Import routes and give the server access to them
-let router = require("./controllers/routeController");
+const userRouter = require("./controllers/userController");
+const commentRouter = require("./controllers/commentController");
+// let router = require("./controllers/commentController");
 
-//routes to handle user registration:
 
-app.use(router)
+app.use(userRouter, commentRouter);
+// app.use();
 
 //db connection
 var db = require("./models");

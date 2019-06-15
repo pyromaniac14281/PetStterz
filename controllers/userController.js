@@ -2,6 +2,12 @@ const express = require('express')
 const router = express.Router()
 const db = require('../models')
 
+
+//displays the main page when the user hits this route.
+router.get('/', (req, res) => {
+    res.render('home')
+})
+
 router.get('/register', (req, res) => {
     res.render('signup')
 })
@@ -12,15 +18,15 @@ router.post('/register', (req, res) => {
 
     db.User.create(req.body)
         .then(user => {
-       
+
             console.log('from the server', user);
 
-            res.send(user)
+            res.json({ status: 200, message: user.dataValues.id});
             // res.redirect('profile')
         })
         .catch((err) => {
             console.log(err)
-            res.send(err)
+            res.json({ status: 500, message: err.message });
         });
 })
 
@@ -30,14 +36,21 @@ router.get('/profile/:id', (req, res) => {
             id: req.params.id
         }
     }).then((data) => {
-        // console.log("this is data", data);
-        console.log("this is data", data.zipcode);
-        res.send({
+        res.render('profile', {
+            fullname: data.firstName + " " + data.lastName,
+            firstname: data.firstName,
+            lastname: data.lastName,
+            phone: data.mobile,
+            address: data.address,
             zipcode: data.zipcode
         })
     })
 
-
 })
+
+router.get('/map', (req, res) => {
+    res.render('maps')
+})
+
 
 module.exports = router;
