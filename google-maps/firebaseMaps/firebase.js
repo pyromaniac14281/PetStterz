@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    var config = {
+    var config = { 
         apiKey: "AIzaSyCQUPXI0N7-b4bOpNlb6n8ML1p6YW5VJ48",
         authDomain: "ronwab-8dbcd.firebaseapp.com",
         databaseURL: "https://ronwab-8dbcd.firebaseio.com",

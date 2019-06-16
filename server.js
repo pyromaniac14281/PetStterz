@@ -37,10 +37,10 @@ app.use(userRouter, commentRouter, providerRouter);
 const db = require('./models');
 
 db.sequelize.sync({
-  force: false,
-}).then(() => {
-  app.listen(PORT, () => {
-    console.log(`App listening on PORT ${PORT}`);
-  });
+    force: false//This action will either maintain(false) or drop(true) the db 
+}).then(function () {
+    app.listen(PORT, function () {
+        console.log("App listening on PORT " + PORT);
+    });
 });
 module.exports = app;
