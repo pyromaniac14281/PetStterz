@@ -43,13 +43,14 @@ function initMap() {
                     
                         var coods = {lat: Number(latCoods),
                                      lng: Number(lngCoods)}
-                                 console.log(coods)
+                                 
+                                     console.log(coods)
 
-                                 addToMarker(coods, pinName, contentString);
+                    addToMarker(coods, pinName, contentString);
                     // Success.  Do stuff here.
                 }
                 else
-                {
+                { console.log('err in get_coords')
                     // Ruh roh.  Output error stuff here
                 }
             });

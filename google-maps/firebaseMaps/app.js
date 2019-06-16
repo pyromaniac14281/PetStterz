@@ -12,12 +12,9 @@
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
 
-      const preObject = document.getElementById("person");
 
-      const dbRefObject = firebase.database().ref();
+      const dbRefObject = firebase.database().ref().child("person");
 
       dbRefObject.on('value', snap => console.log(snap.val()));
 
-      
-
-}());
+    }());
