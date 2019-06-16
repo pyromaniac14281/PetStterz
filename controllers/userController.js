@@ -15,14 +15,28 @@ router.get('/register', (req, res) => {
 //post signup data to the database.
 router.post('/register', (req, res) => {
     const fName = req.body.firstName;
+    const lName = req.body.lastName;
+    //validate first name to ensure its not a number or blank
     if (typeof fName === 'number') {
         res.status(422)
         return res.json({
             message: 'error'
         })
     }
-
     if (!fName) {
+        res.status(422)
+        return res.json({
+            message: 'Your name is needed'
+        })
+    }
+    //validate presene of lname
+    if (typeof lName === 'number') {
+        res.status(422)
+        return res.json({
+            message: 'error'
+        })
+    }
+    if (!lName) {
         res.status(422)
         return res.json({
             message: 'Your name is needed'
