@@ -11,7 +11,7 @@ function initMap() {
     });
 
 
-    const dbRefObject = firebase.database().ref();
+    const dbRefObject = firebase.database().ref('/');
 
       dbRefObject.on('value', function (snapShot) {
         

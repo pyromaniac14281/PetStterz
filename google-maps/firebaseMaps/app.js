@@ -13,7 +13,7 @@
       firebase.initializeApp(firebaseConfig);
 
 
-      const dbRefObject = firebase.database().ref().child("person");
+      const dbRefObject = firebase.database().ref().child("/");
 
       dbRefObject.on('value', snap => console.log(snap.val()));
 
