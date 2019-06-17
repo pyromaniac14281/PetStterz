@@ -22,12 +22,9 @@ function initMap() {
             pinName = data[key].userName;
             
             get_coords(userLocation);
-
-            console.log(userLocation);
-            console.log(pinName);
             
             contentString =  `<h5>User: ${pinName}<h/5>`;
-            
+    
         }
         
         function get_coords(userLocation)
