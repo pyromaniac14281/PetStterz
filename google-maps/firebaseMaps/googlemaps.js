@@ -21,6 +21,8 @@ function initMap() {
             userLocation = data[key].address;
             pinName = data[key].userName;
             
+            get_coords(userLocation);
+
             console.log(userLocation);
             console.log(pinName);
             
@@ -55,9 +57,8 @@ function initMap() {
                 }
             });
         }
-        get_coords(userLocation);
         
-
+        
         function addToMarker(coods, pinName, contentString) {
 
             var infowindow = new google.maps.InfoWindow({
