@@ -22,8 +22,10 @@ function initMap() {
             pinName = data[key].userName;
             
             get_coords(userLocation);
+
+            var test = (`url src = "https://api.petsmart.com/swagger/ui/index#/GeographyV1"`)
             
-            contentString =  `<h2>Provider: ${pinName}<h/2>`;
+            contentString =  `<h2>Provider: ${pinName}<h/2> <h3>link: ${test}`;
     
         }
         
