@@ -23,7 +23,7 @@ function initMap() {
             
             get_coords(userLocation);
             
-            contentString =  `<h5>User: ${pinName}<h/5>`;
+            contentString =  `<h2>Provider: ${pinName}<h/2>`;
     
         }
         
