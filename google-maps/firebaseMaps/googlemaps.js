@@ -1,6 +1,6 @@
 function initMap() {
     var contentString;
-    let userLocation;
+    var userLocation;
 
     var map = new google.maps.Map(document.getElementById("map"), {
         zoom: 11,
@@ -16,20 +16,19 @@ function initMap() {
       dbRefObject.on('value', function (snapShot) {
         
         var data = snapShot.val(); 
+        console.log("this is data" , data);
 
         for (var key in data) {
             userLocation = data[key].address;
             pinName = data[key].userName;
+            contentString =  `<h5>User: ${pinName}<h/5>`;
             
-            get_coords(userLocation);
-
-            var test = (`url src = "https://api.petsmart.com/swagger/ui/index#/GeographyV1"`)
-            
-            contentString =  `<h2>Provider: ${pinName}<h/2> <h3>link: ${test}`;
+            get_coords(userLocation, pinName, contentString);
+            console.log("25" , pinName);
     
         }
         
-        function get_coords(userLocation)
+        function get_coords(userLocation, pinName, contentString)
         {
             var gc      = new google.maps.Geocoder(),
                 opts    = { 'address' : userLocation };
@@ -48,6 +47,8 @@ function initMap() {
                                      console.log(coods)
 
                     addToMarker(coods, pinName, contentString);
+                    console.log("50" , pinName);
+
                     // Success.  Do stuff here.
                 }
                 else
@@ -59,7 +60,7 @@ function initMap() {
         
         
         function addToMarker(coods, pinName, contentString) {
-
+            console.log("63" , pinName);
             var infowindow = new google.maps.InfoWindow({
                 content: contentString
             });
@@ -68,8 +69,9 @@ function initMap() {
                 position: coods,
                 map: map,
                 title: pinName
+                
             });
-
+            console.log("74" , pinName);
             marker.addListener("click", function () {
                 infowindow.open(map, marker);
             });
