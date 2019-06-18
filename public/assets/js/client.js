@@ -13,6 +13,21 @@ let address;
 let zipCode;
 let userImageURL;
 
+//firebase config
+    var config = {
+        apiKey: "AIzaSyCQUPXI0N7-b4bOpNlb6n8ML1p6YW5VJ48",
+        authDomain: "ronwab-8dbcd.firebaseapp.com",
+        databaseURL: "https://ronwab-8dbcd.firebaseio.com",
+        projectId: "ronwab-8dbcd",
+        storageBucket: "ronwab-8dbcd.appspot.com",
+        messagingSenderId: "148535054528"
+    };
+    firebase.initializeApp(config);
+    database = firebase.database()
+
+
+
+
 document.getElementById('file-upload').addEventListener('change', function (event) {
     event.preventDefault();
    userFile = event.target.files[0];
@@ -74,8 +89,21 @@ document.getElementById("btn-signup").addEventListener("click", function(e) {
           const userId = data.message;
           localStorage.setItem('userId', userId);
           window.location.href = '/profile/' + userId;
+
+        //post to fb
+        postToFirebase()
+
         }).catch((err) => console.log(err));
 }
+
+function postToFirebase(data){
+ database.ref().push(data)
+
+
+}
+
+
+
 });
 // };
 

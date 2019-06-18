@@ -4,7 +4,7 @@
   "description": "",
   "main": "config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "PORT=8089 mocha --recursive --exit",
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/pyromaniac14281/PetStterz#readme",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "dotenv": "^8.0.0",
     "env.json": "^2.0.1",
@@ -29,11 +28,15 @@
     "mysql": "^2.17.1",
     "mysql2": "^1.6.5",
     "node-geocoder": "^3.23.0",
-    "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
     "sequelize": "^5.8.7"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.3",
+    "mocha": "^6.1.4",
     "nodemon": "^1.19.1"
   }
 }
