@@ -35,7 +35,7 @@ Make the services of petcare available for those who require it.
 
 ## Tech/framework used:
 
-Handlebars, CSS, JavaScript, Firebase, AWS, MySQL, Express, Geocoder
+Handlebars, CSS, JavaScript, Firebase, AWS, MySQL, Express, Geocoder, GoogleMaps
 
 ### New Technology used:
 
@@ -43,7 +43,9 @@ MySQL
 
 Aunthentication
 
+### APIs Used
 
+Google Maps API
 
 ## Copyright: 
 
