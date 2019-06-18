@@ -78,12 +78,9 @@ router.get('/profile/:id', (req, res) => {
             address: data.address,
             zipcode: data.zipcode,
             userImageURL: data.userImageURL
-
         })
         console.log(data);
-
     })
-
 });
 
 router.get('/map', (req, res) => {

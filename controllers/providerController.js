@@ -9,17 +9,25 @@ router.get('/provider/:id', (req, res) => {
 		where: {
 			id: req.params.id
 		}
-	}).then((data) => {
-		console.log(data.comments);
+	})
+.then((data) => {
+		// console.log(data);
+		
+		// console.log(data.comments);
+		// console.log(data.url);
+		// console.log(data.firstName);
+		// console.log(data.url);
 		res.render('provider', {
 			fullname: data.firstName + ' ' + data.lastName,
 			ratings: data.ratings,
 			pets: data.pets,
 			contactInfo: data.mobileno,
-			comments:data.comments
+			comments:data.comments,
+			imageurl:data.url
 		});
 
 	});
+
 });
 
 router.get('/provider', (req,res)=>{
@@ -31,6 +39,5 @@ router.get('/provider', (req,res)=>{
 	res.send(res)
 
 })
-
 
 module.exports = router;

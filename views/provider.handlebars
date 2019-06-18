@@ -1,6 +1,4 @@
 <div class="container">
-  <a href src="/socket/index.html">Socket Chat App</a>
-
   <div class="w3-content w3-margin-top" style="max-width:1400px;">
 
     <div class="w3-row-padding">
@@ -9,7 +7,7 @@
 
         <div class="w3-white w3-text-grey w3-card-4">
           <div class="w3-display-container">
-            <img src={{userImageURL}} style="width:100%" alt="profile">
+            <img src={{imageurl}} style="width:100%" alt="profile">
             <div class="w3-display-bottomleft w3-container w3-text-white">
               <h2>{{fullname}}</h2>
             </div>
@@ -24,9 +22,9 @@
             <hr>
 
             <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
-            <p>Dog-Walking</p>
+            <p>{{pets}} Walking</p>
             <div class="w3-light-grey w3-round-xlarge w3-small">
-              <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
+              <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:{{ratings}}%">{{ratings}}%</div>
             </div>
             <p>House-Sitting</p>
             <div class="w3-light-grey w3-round-xlarge w3-small">
