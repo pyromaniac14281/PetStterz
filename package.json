@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/pyromaniac14281/PetStterz#readme",
   "dependencies": {
+    "axios": "^0.19.0",
     "body-parser": "^1.19.0",
     "dotenv": "^8.0.0",
     "env.json": "^2.0.1",
