@@ -34,7 +34,7 @@ app.use(userRouter, commentRouter);
 var db = require("./models");
 
 db.sequelize.sync({
-    force: true //This action will either maintain(false) or drop(true) the db 
+    force: false //This action will either maintain(false) or drop(true) the db 
 }).then(function () {
     app.listen(PORT, function () {
         console.log("App listening on PORT " + PORT);
