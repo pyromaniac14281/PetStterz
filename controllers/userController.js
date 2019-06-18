@@ -57,5 +57,10 @@ router.get('/map', (req, res) => {
     res.render('maps')
 })
 
+router.get('/dogs', (req, res) => {
+    res.render('dogs')
+})
+
+
 
 module.exports = router;
