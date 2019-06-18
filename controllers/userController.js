@@ -53,7 +53,7 @@ router.get('/profile/:id', (req, res) => {
 
 })
 
-router.get('/map', (req, res) => {
+router.get('/maps', (req, res) => {
     res.render('maps')
 })
 
