@@ -24,8 +24,6 @@ function initMap() {
             contentString =  `<h5>User: ${pinName}<h/5>`;
             
             get_coords(userLocation, pinName, contentString);
-            console.log("25" , pinName);
-    
         }
         
         function get_coords(userLocation, pinName, contentString)
@@ -43,13 +41,9 @@ function initMap() {
                     
                         var coods = {lat: Number(latCoods),
                                      lng: Number(lngCoods)}
-                                 
-                                     console.log(coods)
 
-                    addToMarker(coods, pinName, contentString);
-                    console.log("50" , pinName);
-
-                    // Success.  Do stuff here.
+                    addToMarker(coods, pinName, contentString);  
+                  // Success.  Do stuff here.
                 }
                 else
                 { console.log('err in get_coords')
@@ -60,7 +54,7 @@ function initMap() {
         
         
         function addToMarker(coods, pinName, contentString) {
-            console.log("63" , pinName);
+            
             var infowindow = new google.maps.InfoWindow({
                 content: contentString
             });
@@ -69,9 +63,8 @@ function initMap() {
                 position: coods,
                 map: map,
                 title: pinName
-                
             });
-            console.log("74" , pinName);
+            
             marker.addListener("click", function () {
                 infowindow.open(map, marker);
             });
