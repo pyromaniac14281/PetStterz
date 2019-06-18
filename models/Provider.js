@@ -10,6 +10,10 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING
             // allowNull defaults to true
         },
+          comments: {
+            type: DataTypes.STRING
+            // allowNull defaults to true
+        },
         ratings: {
             type: DataTypes.INTEGER
             // allowNull defaults to true
@@ -21,8 +25,15 @@ module.exports = function (sequelize, DataTypes) {
         mobileno: {
             type: DataTypes.STRING
             // allowNull defaults to true
+        },
+        url: {
+            type:DataTypes.STRING
         }
-
     })
+    //     Provider.associate = function (models) {
+    //     User.hasMany(models.Review, {
+    //         onDelete: "cascade"
+    //     })
+    // }
     return Provider;
 };

@@ -1,10 +1,9 @@
 {
   "development": {
-    "username":  "KingdomB",
-    "password": "2020Mu$tang$",
+    "username": "root",
+    "password": null,
     "database": "petstterz_db",
-    "host": "mysqldatabase.c4momngxuutb.us-east-1.rds.amazonaws.com",
-    "port": 3306,
+    "host": "127.0.0.1",
     "dialect": "mysql",
     "logging": false
   },
