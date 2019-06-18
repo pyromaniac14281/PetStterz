@@ -1,3 +1,33 @@
-<h1>The Map Goes Here</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Providers Around You</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 80%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script src='/assets/js/app.js'></script>
+    <script src="/assets/js/firebase.js"></script>
+    <script src="/assets/js/googlemaps.js"></script>    
+  </head>
+  <body>
+    <pre id="object">
 
-<div id="map"></div>
+    </pre>
+    <div id="map"></div>
+
+  </body>
+          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAznp5IiRCExfYhahEoU7S63ZaeoPjlnG0&callback=initMap"></script>
+</html>

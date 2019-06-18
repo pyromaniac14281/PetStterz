@@ -83,9 +83,15 @@ router.get('/profile/:id', (req, res) => {
     })
 });
 
+<<<<<<< HEAD
+router.get('/maps', (req, res) => {
+    res.render('maps')
+})
+=======
 router.get('/map', (req, res) => {
     res.render('maps');
 });
+>>>>>>> 7928980dbb6fff7fd8440e594413fa0b116f42d6
 
 
 module.exports = router;

@@ -1,6 +1,6 @@
 function initMap() {
     var contentString;
-    let userLocation;
+    var userLocation;
 
     var map = new google.maps.Map(document.getElementById("map"), {
         zoom: 11,
@@ -16,18 +16,17 @@ function initMap() {
       dbRefObject.on('value', function (snapShot) {
         
         var data = snapShot.val(); 
+        console.log("this is data" , data);
 
         for (var key in data) {
             userLocation = data[key].address;
             pinName = data[key].userName;
-            
-            get_coords(userLocation);
-            
             contentString =  `<h5>User: ${pinName}<h/5>`;
-    
+            
+            get_coords(userLocation, pinName, contentString);
         }
         
-        function get_coords(userLocation)
+        function get_coords(userLocation, pinName, contentString)
         {
             var gc      = new google.maps.Geocoder(),
                 opts    = { 'address' : userLocation };
@@ -42,11 +41,9 @@ function initMap() {
                     
                         var coods = {lat: Number(latCoods),
                                      lng: Number(lngCoods)}
-                                 
-                                     console.log(coods)
 
-                    addToMarker(coods, pinName, contentString);
-                    // Success.  Do stuff here.
+                    addToMarker(coods, pinName, contentString);  
+                  // Success.  Do stuff here.
                 }
                 else
                 { console.log('err in get_coords')
@@ -57,7 +54,7 @@ function initMap() {
         
         
         function addToMarker(coods, pinName, contentString) {
-
+            
             var infowindow = new google.maps.InfoWindow({
                 content: contentString
             });
@@ -67,7 +64,7 @@ function initMap() {
                 map: map,
                 title: pinName
             });
-
+            
             marker.addListener("click", function () {
                 infowindow.open(map, marker);
             });
