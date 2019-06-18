@@ -10,7 +10,10 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING
             // allowNull defaults to true
         },
-          comments: {
+        aboutMe: {
+            type: DataTypes.STRING
+        },
+        comments: {
             type: DataTypes.STRING
             // allowNull defaults to true
         },
@@ -25,6 +28,9 @@ module.exports = function (sequelize, DataTypes) {
         mobileno: {
             type: DataTypes.STRING
             // allowNull defaults to true
+        },
+        email: {
+            type: DataTypes.STRING
         },
         url: {
             type:DataTypes.STRING
