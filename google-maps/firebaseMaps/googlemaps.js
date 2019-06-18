@@ -10,35 +10,60 @@ function initMap() {
         }
     });
 
-    var myLatLng = firebase.database().ref("/");
 
-    myLatLng.on("value", function (snapShot) {
+    const dbRefObject = firebase.database().ref();
+
+      dbRefObject.on('value', function (snapShot) {
         
         var data = snapShot.val(); 
 
         for (var key in data) {
-            userLocation = data[key].locationCoodsvals;
-            pinName = data[key].userNameField;
-            imageurl = data[key].urlfield;
-            imageTitleField = data[key].imageTitleField;
-            DescriptionField = data[key].DescriptionField
-            console.log(userLocation);
-            console.log(pinName);
-            console.log(imageurl);
-            console.log(imageTitleField);
-
-            contentString = `<h4>Piece: ${data[key].imageTitleField}</h4> <br> <img src="${imageurl}" width="180px"> <br> <h5>Artist: ${pinName}<h/5><br> <p>Description: ${DescriptionField}</p>`;
-            addToMarker(userLocation, pinName, contentString);
+            userLocation = data[key].address;
+            pinName = data[key].userName;
+            
+            get_coords(userLocation);
+            
+            contentString =  `<h5>User: ${pinName}<h/5>`;
+    
         }
+        
+        function get_coords(userLocation)
+        {
+            var gc      = new google.maps.Geocoder(),
+                opts    = { 'address' : userLocation };
+        
+            gc.geocode(opts, function (results, status)
+            {
+                if (status == google.maps.GeocoderStatus.OK)
+                {   
+                    var loc     = results[0].geometry.location,
+                        latCoods     = results[0].geometry.location.lat();
+                        lngCoods     = results[0].geometry.location.lng();
+                    
+                        var coods = {lat: Number(latCoods),
+                                     lng: Number(lngCoods)}
+                                 
+                                     console.log(coods)
 
-        function addToMarker(userLocation, pinName, contentString) {
+                    addToMarker(coods, pinName, contentString);
+                    // Success.  Do stuff here.
+                }
+                else
+                { console.log('err in get_coords')
+                    // Ruh roh.  Output error stuff here
+                }
+            });
+        }
+        
+        
+        function addToMarker(coods, pinName, contentString) {
 
             var infowindow = new google.maps.InfoWindow({
                 content: contentString
             });
 
             var marker = new google.maps.Marker({
-                position: userLocation,
+                position: coods,
                 map: map,
                 title: pinName
             });
