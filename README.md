@@ -49,6 +49,6 @@ Google Maps API
 
 ## Copyright: 
 
-Ron Wabukenda(@ronaldwabukenda), King Major(@KingdomB), King Major(@KingdomB), Tyler Harrison(@n00b-c0der), Miguel Razo(@miguelrazo25)
+Ron Wabukenda(@ronaldwabukenda), King Major(@KingdomB), King Major(@KingdomB), Tyler Harrison(@n00b-c0der), Miguel Razo(@miguelrazo25), Vinesh Pendyala(@pyromaniac14281)
 
 © 2019 All Rights Reserved
